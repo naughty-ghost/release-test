@@ -17,9 +17,11 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.5
         with:
+          # 圧縮形式
           type: zip
+          # 圧縮したファイル名
           filename: test.zip
-          path: temp
+          directory: temp
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
