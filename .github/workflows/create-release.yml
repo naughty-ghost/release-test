@@ -1,0 +1,27 @@
+name: create a new release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Archive Release
+        uses: thedoctor0/zip-release@0.7.5
+        with:
+          type: zip
+          filename: test.zip
+          path: temp
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            test.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
