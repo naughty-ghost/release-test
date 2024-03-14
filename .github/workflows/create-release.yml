@@ -25,4 +25,3 @@ jobs:
         with:
           files: |
             test.zip
-          token: ${{ secrets.GITHUB_TOKEN }}
